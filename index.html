@@ -378,13 +378,67 @@
     
     <!-- ===== TAs ===== -->
     <section id="tas" class="card">
-      <h2>Teaching Assistant</h2>
-      <ul>
-        <li><strong>A.H. Hosseini Jebbeli</strong> — email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a></li>
-        <img src="https://drive.google.com/file/d/1djg8DxgMqzqRS_-CGE1vqibXv86zi5tc/view?usp=sharing" alt="Amir Jebbeli" />
-        <li><strong>A. Darpouy</strong> — email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a></li>
-        <img src="https://drive.google.com/file/d/1JBnz6LrPWr0bKCH5ZQKfASBq4NzwNI7f/view?usp=sharing" alt="Aryan Darpouy" />
-      </ul>
+      <h2>Teaching Assistant</h2><style>
+  .ta-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 1.5rem auto;
+  }
+  .ta-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .ta-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .ta-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+  }
+  .ta-info strong {
+    display: block;
+    font-size: 1.1em;
+    color: #2c3e50;
+  }
+  .ta-info a {
+    color: #3498db;
+    text-decoration: none;
+  }
+  .ta-info a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<ul class="ta-list">
+  <li class="ta-item">
+    <img src="https://drive.google.com/uc?export=view&id=1djg8DxgMqzqRS_-CGE1vqibXv86zi5tc" 
+         alt="Amir Jebbeli" class="ta-avatar" />
+    <div class="ta-info">
+      <strong>A.H. Hosseini Jebbeli</strong> — 
+      email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a>
+    </div>
+  </li>
+  <li class="ta-item">
+    <img src="https://drive.google.com/uc?export=view&id=1JBnz6LrPWr0bKCH5ZQKfASBq4NzwNI7f" 
+         alt="Aryan Darpouy" class="ta-avatar" />
+    <div class="ta-info">
+      <strong>A. Darpouy</strong> — 
+      email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a>
+    </div>
+  </li>
+</ul>
     </section>
 
     
