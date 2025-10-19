@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundamentals of Programming — FCP-IUST-4041</title>
+  <meta name="description" content="FCP-IUST-4041 — Fundamentals of Programming: slides, social links, assignments, policy, TA, and mentors." />
+  <style>
+    /* ===== Base ===== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, Tahoma; line-height: 1.8; background: #f7f7f8; color: #111; }
+    a { color: inherit; }
+    .container { max-width: 1024px; margin: 0 auto; padding: 18px; }
+    .card { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 2px 10px rgba(0,0,0,.04); margin-bottom: 18px; }
+    .muted { color: #6b7280; }
+
+    /* ===== Header & Nav ===== */
+    header { background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 10; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand img { width: 60px; height: 60px; object-fit: contain; }
+    .title { margin: 0; }
+    .subtitle { margin: 0; color: #4b5563; }
+    nav.nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 8px; }
+    nav.nav a { text-decoration: none; padding: 8px 12px; border-radius: 10px; border: 1px solid #e5e7eb; }
+    nav.nav a:hover { background: #f3f4f6; }
+
+    /* ===== Tables & Badges ===== */
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #e5e7eb; padding: 8px 10px; text-align: left; }
+    th { background: #fafafa; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid #e5e7eb; font-size:12px; color:#374151; background:#fff; }
+
+    /* ===== Footer ===== */
+    footer { border-top: 1px solid #eee; margin-top: 24px; padding: 16px 0; color: #6b7280; background: #fff; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container">
+      <div class="brand">
+        <img src="https://ce-inter.iust.ac.ir/files/site1/modern04/header_left_en.png" alt="IUST logo" />
+        <div>
+          <h1 class="title">FCP-IUST-4041</h1>
+          <p class="subtitle">Fundamentals of Programming</p>
+          <p class="subtitle">Teaching Assistant: <strong>A.H. Hosseini Jebbeli</strong></p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#slides">Slides</a>
+        <a href="#social">Social Links</a>
+        <a href="#assignments">Assignments</a>
+        <a href="#policy">Policy</a>
+        <a href="#tas">Teaching Assistants</a>
+        <a href="#mentors">Mentors</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== HOME ===== -->
+    <section id="home" class="card">
+      <h2>Welcome!</h2>
+      <p>
+        This single-page site hosts announcements, slides, assignments, and contacts
+        for the <em>Fundamentals of Programming</em> course.
+      </p>
+      <ul>
+        <li>Announcement: Assignment 1 released — due <em>TBD</em>.</li>
+        <li>Weekly Q&amp;A: <em>TBD</em>.</li>
+      </ul>
+      <p class="muted">All external links open in a new tab.</p>
+    </section>
+
+    <!-- ===== SLIDES ===== -->
+    <section id="slides" class="card">
+      <h2>Slides</h2>
+      <table>
+        <thead><tr><th style="width:80px">#</th><th>Title</th><th style="width:220px">Link</th></tr></thead>
+        <tbody>
+          <!-- Put the real file links later (href="#") -->
+          <tr><td>1.1</td><td>IO</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>1.2</td><td>Conditions</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>2</td><td>Loops</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>3</td><td>Functions</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>4</td><td>Arrays</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>5</td><td>Pointers</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>6</td><td>String &amp; Struct &amp; …</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+          <tr><td>7</td><td>OOP</td><td><a href="#" target="_blank" rel="noopener">Add link</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== SOCIAL ===== -->
+    <section id="social" class="card">
+      <h2>Social Links & Course Resources</h2>
+      <ul>
+        <li>Quera (join course): <a href="https://quera.org/course/add_to_course/course/23572/" target="_blank" rel="noopener">Open</a></li>
+        <li>Telegram Channel: <a href="https://t.me/fcp4041" target="_blank" rel="noopener">Open</a></li>
+        <li>Telegram Group: <a href="https://t.me/+wbFtlbbsCHxmZjE0" target="_blank" rel="noopener">Open</a></li>
+        <li>Course Sheet (Google Sheets): <a href="https://docs.google.com/spreadsheets/d/1E93XqwuAPqaowKzJIfFBhETRnw6IFXgBmv4s3_voUGc/edit?usp=sharing" target="_blank" rel="noopener">Open</a></li>
+        <li>Course Website: <a href="https://fcp-iust.github.io" target="_blank" rel="noopener">Open</a></li>
+        <li>YouTube: <a href="https://youtube.com/@iustech" target="_blank" rel="noopener">Open</a></li>
+        <li>GitHub: <a href="http://github.com/IUST-CE293/CE293-FCP" target="_blank" rel="noopener">Open</a></li>
+        <li>Instagram: <a href="https://instagram.com/fcp4041" target="_blank" rel="noopener">Open</a></li>
+        <li>Email: <a href="mailto:fcp4041.iust@gmail.com" target="_blank" rel="noopener">fcp4041.iust@gmail.com</a></li>
+        <li>Anonymous Feedback (Telegram bot): <a href="https://t.me/paym_nashenasBot?start=o5GHgyRJ0Aq" target="_blank" rel="noopener">Open</a></li>
+        <li>Policy (Telegram post): <a href="https://t.me/fcp4041/27" target="_blank" rel="noopener">Open</a></li>
+      </ul>
+    </section>
+
+    <!-- ===== ASSIGNMENTS ===== -->
+    <section id="assignments" class="card">
+      <h2>Assignments</h2>
+      <ul>
+        <li><strong>HW1</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW2</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW3</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW4</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW5</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW6</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        <li><strong>HW7</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+      </ul>
+    </section>
+
+    <!-- ===== POLICY ===== -->
+    <section id="policy" class="card">
+      <h2>Course Policy</h2>
+      <p>
+        Full policy PDF (upload this file to the repository root and the link will work):
+        <a href="./policy_FCP4041_by_dr.Davoodabadi.pdf" target="_blank" rel="noopener">policy_FCP4041_by_dr.Davoodabadi.pdf</a>
+      </p>
+      <h3>Assessment</h3>
+      <ul>
+        <li>Assignments: 40%</li>
+        <li>Midterm: 30%</li>
+        <li>Final: 30%</li>
+      </ul>
+      <h3>Late Policy</h3>
+      <p>TBD — define your late submission policy here.</p>
+      <h3>Academic Integrity</h3>
+      <p>Collaboration for learning is welcome; submitted work must be your own. Plagiarism or code copying will be penalized.</p>
+    </section>
+
+    <!-- ===== TAs ===== -->
+    <section id="tas" class="card">
+      <h2>Teaching Assistant</h2>
+      <ul>
+        <li><strong>A.H. Hosseini Jebbeli</strong> — email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a></li>
+      </ul>
+      <p>Office hours: <em>TBD</em>.</p>
+    </section>
+
+    <!-- ===== MENTORS ===== -->
+    <section id="mentors" class="card">
+      <h2>Mentors</h2>
+      <p class="muted">Up to 30 students — fill in names and contacts when ready.</p>
+      <table>
+        <thead><tr><th style="width:60px">#</th><th>Name</th><th>Contact</th></tr></thead>
+        <tbody>
+          <!-- 30 placeholder rows -->
+          <tr><td>1</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>2</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>3</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>4</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>5</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>6</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>7</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>8</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>9</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>10</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>11</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>12</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>13</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>14</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>15</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>16</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>17</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>18</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>19</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>20</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>21</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>22</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>23</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>24</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>25</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>26</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>27</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>28</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>29</td><td>TBD</td><td>TBD</td></tr>
+          <tr><td>30</td><td>TBD</td><td>TBD</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© 2025 – FCP-IUST – Hosted on GitHub Pages</small>
+    </div>
+  </footer>
+</body>
+</html>
