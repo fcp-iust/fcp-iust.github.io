@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fundamentals of Programming — FCP-IUST-4041</title>
   <meta name="description" content="FCP-IUST-4041 — Fundamentals of Programming: slides, social links, assignments, policy, TA, and mentors." />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/226/226777.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -42,6 +43,7 @@
       --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
       --floating-1-color: rgba(67, 97, 238, 0.2);
       --floating-2-color: rgba(114, 9, 183, 0.2);
+      --footer-bg: rgba(15, 23, 42, 0.7);
     }
     
     :root.light-theme {
@@ -71,6 +73,7 @@
       --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
       --floating-1-color: rgba(67, 97, 238, 0.1);
       --floating-2-color: rgba(114, 9, 183, 0.1);
+      --footer-bg: rgba(248, 249, 250, 0.9);
     }
     
     html { 
@@ -194,6 +197,12 @@
       height: 4px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       border-radius: 2px;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--card-text);
     }
     
     ul {
@@ -561,12 +570,42 @@
       box-shadow: 0 6px 15px rgba(76, 201, 240, 0.4);
     }
 
+    /* ===== Assignments Section ===== */
+    .assignment-section {
+      margin: 1.5rem 0;
+    }
+    
+    .assignment-subtitle {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--card-text);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+    }
+    
+    .assignment-subtitle::before {
+      content: "";
+      display: inline-block;
+      width: 30px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      margin-right: 10px;
+      border-radius: 2px;
+    }
+    
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      margin: 2rem 0;
+    }
+
     /* ===== Footer ===== */
     footer { 
       margin-top: 4rem; 
       padding: 2rem 0; 
       color: var(--muted-color); 
-      background: rgba(15, 23, 42, 0.7);
+      background: var(--footer-bg);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       text-align: center;
@@ -682,7 +721,20 @@
 
     <!-- ===== TAs ===== -->
     <section id="tas" class="card">
-      <h2>Teaching Assistants</h2>
+      <h2>Teaching Staff</h2>
+      
+      <!-- Instructor -->
+      <div class="head-tas">
+        <div class="head-ta-card">
+          <div class="head-ta-avatar">
+            <img src="https://www.iust.ac.ir/files/dept_ce/images/davoodabadi.jpg" alt="Marzieh Davoodabadi Farahani"/>
+          </div>
+          <div class="head-ta-name">Marzieh Davoodabadi Farahani</div>
+          <span class="head-ta-email">— email: <a href="mailto:ma.davoodabadi@gmail.com">ma.davoodabadi@gmail.com</a></span>
+          <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/MarziehDavoodabadi">@MarziehDavoodabadi</a></span>
+          <div class="head-ta-role">Professor of Computer Engineering</div>
+        </div>
+      </div>
       
       <!-- Head TAs -->
       <div class="head-tas">
@@ -990,15 +1042,53 @@
     <!-- ===== ASSIGNMENTS ===== -->
     <section id="assignments" class="card">
       <h2>Assignments</h2>
-      <ul>
-        <li><strong>HW1</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW2</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW3</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW4</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW5</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW6</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-        <li><strong>HW7</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
-      </ul>
+      
+      <div class="assignment-section">
+        <h3 class="assignment-subtitle">Homework</h3>
+        <ul>
+          <li><strong>HW1</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW2</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW3</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW4</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW5</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW6</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>HW7</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        </ul>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="assignment-section">
+        <h3 class="assignment-subtitle">Quiz</h3>
+        <ul>
+          <li><strong>Quiz1</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz2</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz3</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz4</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz5</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz6</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+          <li><strong>Quiz7</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        </ul>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="assignment-section">
+        <h3 class="assignment-subtitle">Project</h3>
+        <ul>
+          <li><strong>Final Project</strong> — <span class="badge">Due: TBD</span> — <a href="#" target="_blank" rel="noopener">Submission link</a></li>
+        </ul>
+      </div>
+      
+      <div class="divider"></div>
+      
+      <div class="assignment-section">
+        <h3 class="assignment-subtitle">Exams</h3>
+        <ul>
+          <li><strong>Midterm Exam</strong> — <a href="#" target="_blank" rel="noopener">Exam file</a></li>
+          <li><strong>Final Exam</strong> — <a href="#" target="_blank" rel="noopener">Exam file</a></li>
+        </ul>
+      </div>
     </section>
 
     <!-- ===== POLICY ===== -->
@@ -1082,7 +1172,7 @@
       }
     });
 
-    // Theme toggle functionality
+    // Theme toggle functionality - NOW WORKS INSTANTLY WITHOUT REFRESH
     document.getElementById('themeToggle').addEventListener('click', function() {
       const body = document.body;
       const themeToggle = document.getElementById('themeToggle');
