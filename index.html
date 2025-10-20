@@ -40,7 +40,8 @@
       --nav-hover: rgba(67, 97, 238, 0.3);
       --nav-active: linear-gradient(90deg, var(--primary), var(--secondary));
       --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
-      --floating-bg: radial-gradient(circle, rgba(67, 97, 238, 0.2) 0%, transparent 70%);
+      --floating-1-color: rgba(67, 97, 238, 0.2);
+      --floating-2-color: rgba(114, 9, 183, 0.2);
     }
     
     :root.light-theme {
@@ -68,7 +69,8 @@
       --nav-hover: rgba(67, 97, 238, 0.1);
       --nav-active: linear-gradient(90deg, var(--primary), var(--secondary));
       --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
-      --floating-bg: radial-gradient(circle, rgba(67, 97, 238, 0.1) 0%, transparent 70%);
+      --floating-1-color: rgba(67, 97, 238, 0.1);
+      --floating-2-color: rgba(114, 9, 183, 0.1);
     }
     
     html { 
@@ -96,8 +98,8 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(114, 9, 183, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 10% 20%, var(--floating-1-color) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, var(--floating-2-color) 0%, transparent 20%),
         radial-gradient(circle at 50% 50%, rgba(247, 37, 133, 0.1) 0%, transparent 30%);
       z-index: -1;
     }
@@ -598,103 +600,6 @@
     .card:nth-child(7) { animation-delay: 0.7s; }
     .card:nth-child(8) { animation-delay: 0.8s; }
     
-    /* Floating elements */
-    .floating {
-      position: absolute;
-      border-radius: 50%;
-      background: var(--floating-bg);
-      z-index: -1;
-    }
-    
-    .floating-1 {
-      width: 300px;
-      height: 300px;
-      top: 10%;
-      left: 5%;
-      animation: float 15s infinite ease-in-out;
-    }
-    
-    .floating-2 {
-      width: 200px;
-      height: 200px;
-      bottom: 15%;
-      right: 8%;
-      animation: float 18s infinite ease-in-out reverse;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(20px, 20px); }
-      50% { transform: translate(0, 40px); }
-      75% { transform: translate(-20px, 20px); }
-    }
-    
-    /* ===== Responsive Design ===== */
-    @media (max-width: 992px) {
-      .head-tas {
-        gap: 3rem;
-      }
-      
-      .regular-tas {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.5rem;
-      }
-      
-      nav.nav {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      
-      .social-links {
-        grid-template-columns: 1fr;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .head-tas {
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .card {
-        padding: 1.8rem;
-      }
-      
-      nav.nav a {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.85rem;
-      }
-      
-      .regular-tas {
-        grid-template-columns: 1fr;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .head-ta-avatar {
-        width: 160px;
-        height: 160px;
-      }
-    }
-    
     /* ===== Theme Toggle Button ===== */
     .theme-toggle {
       position: fixed;
@@ -739,10 +644,6 @@
   <div class="theme-toggle" id="themeToggle">
     <i class="fas fa-moon"></i>
   </div>
-
-  <!-- Floating elements -->
-  <div class="floating floating-1"></div>
-  <div class="floating floating-2"></div>
 
   <!-- ===== HEADER ===== -->
   <header>
@@ -1170,7 +1071,6 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
-        document.documentElement.style.setProperty('--body-bg', '#f8f9fa');
         document.querySelector('.theme-toggle').classList.add('light-mode');
         document.querySelector('.theme-toggle i').classList.remove('fa-moon');
         document.querySelector('.theme-toggle i').classList.add('fa-sun');
