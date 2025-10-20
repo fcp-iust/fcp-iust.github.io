@@ -377,157 +377,300 @@
 
     
     <!-- ===== TAs ===== -->
-    <section id="tas" class="card">
-      <h2>Teaching Assistant</h2><style>
-  .ta-list {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
-    margin: 1.5rem auto;
-  }
-  .ta-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-    padding: 0.8rem;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .ta-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  .ta-avatar {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #e0e0e0;
-  }
-  .ta-info strong {
-    display: block;
-    font-size: 1.1em;
-    color: #2c3e50;
-  }
-  .ta-info a {
-    color: #3498db;
-    text-decoration: none;
-  }
-  .ta-info a:hover {
-    text-decoration: underline;
-  }
-</style>
+    <!-- ===== TAs ===== -->
+<section id="tas" class="card">
+  <h2>Teaching Assistants</h2>
+  <style>
+    .ta-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
 
-<ul class="ta-list">
-<li class="ta-item">
-  <img src="https://s6.uupload.ir/files/2a48e619-3bbb-46fd-bbd3-1e03ddb9ef7e_sy83.jpg" border="0" alt="Amir Jebbeli" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>AmirHossein Hosseini Jebbeli</strong> — 
-    email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a>
-  </div>
-</li>
-<li class="ta-item">
-  <img src="https://s6.uupload.ir/files/b10f6874-57fd-46e3-a3a7-de2a6be93a71_ju4q.jpg" 
-       alt="Aryan Darpouy" class="ta-avatar" />
-  <div class="ta-info">
-    <strong>Aryan Darpouy</strong> — 
-    email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a>
-  </div>
-</li>
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/c6f7de58-209f-4313-9da0-618f38084874_818.jpg" border="0" alt="Ramin Buzarpur" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Ramin Buzarpur</strong> — 
-    email: <a href="mailto:raminbuzarpur@gmail.com">raminbuzarpur@gmail.com</a>
-  </div>
-</li>
+    /* Head TAs Section */
+    .head-tas {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #f0f4ff;
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/a7228230-4ed9-43d7-bc6e-5ae1c948aeac_qgr6.jpg" border="0" alt="Kiarash Sohrabi" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Kiarash Sohrabi</strong> — 
-    email: <a href="mailto:kiarashs37@gmail.com">kiarashs37@gmail.com</a>
-  </div>
-</li>
+    .head-ta-card {
+      text-align: center;
+      max-width: 220px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/ca1a2750-ceb2-44d6-b6b2-d5b1d27c5071_iafs.jpg" border="0" alt="Amin Shiravani" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Amin Shiravani</strong> — 
-    email: <a href="mailto:aminshiravani84@gmail.com">aminshiravani84@gmail.com</a>
-  </div>
-</li>
-  
-<li class="ta-item">
-  <img src="https://s6.uupload.ir/files/ilya_ebrahimi_maif.jpg" border="0" alt="Ilya Ebrahimi" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Ilya Ebrahimi</strong> — 
-    email: <a href="mailto:iliyaebrahimiwork1000@gmail.com">iliyaebrahimiwork1000@gmail.com</a>
-  </div>
-</li>
+    .head-ta-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
 
-<li class="ta-item">
-  <img src="https://s6.uupload.ir/files/46b81b3c-e095-4f88-820b-553fd88b78d6_qwx3.jpg" border="0" alt="Parsa Zargar" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Parsa Zargar</strong> — 
-    email: <a href="mailto:parsa.zargar2014@gmail.com">parsa.zargar2014@gmail.com</a>
-  </div>
-</li>
-  
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/9fb7dc4f-1d52-4121-b824-46f23d9b65e5_h920.jpg" border="0" alt="Parsa Hasani" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Parsa Hasani</strong> — 
-    email: <a href="mailto:mhmdparsahsny@gmail.com">mhmdparsahsny@gmail.com</a>
-  </div>
-</li>
+    .head-ta-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
+      margin: 0 auto 1.2rem;
+      transition: all 0.3s ease;
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/9740a09d-d9d8-42cc-bb6e-238cb5c0b833_b5bt.jpg" border="0" alt="Kasra Shariati" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Kasra Shariati</strong> — 
-    email: <a href="mailto:chemistrylove.clash@gmail.com">chemistrylove.clash@gmail.com</a>
-  </div>
-</li>
+    .head-ta-card:hover .head-ta-avatar {
+      border-color: var(--secondary);
+      box-shadow: 0 12px 35px rgba(114, 9, 183, 0.4);
+    }
 
-  
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/50c4988f-887a-4f23-a175-04efcd0fe166_zzv.jpg" border="0" alt="Armin Buzarpur" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Armin Buzarpur</strong> — 
-    email: <a href="mailto:arminboozarpour83@gmail.com">arminboozarpour83@gmail.com</a>
-  </div>
-</li>
+    .head-ta-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/4533b5e6-6dd2-4883-bc24-b81fbb653403_4gwt.jpg" border="0" alt="Mohammadreza Hasani" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Mohammadreza Hasani</strong> — 
-    email: <a href="mailto:m.r.hassani8585@gmail.com">m.r.hassani8585@gmail.com</a>
-  </div>
-</li>
+    .head-ta-email {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/6026093915679084224_3f4g.jpg" border="0" alt="Amirreza Talebi" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Amirreza Talebi</strong> — 
-    email: <a href="mailto:taleb.joojadeh@gmail.com">taleb.joojadeh@gmail.com</a>
-  </div>
-</li>
+    .head-ta-role {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+    }
 
-  <li class="ta-item">
-  <img src="https://s6.uupload.ir/files/6436fa19-8e05-40a2-8050-31bf6a7bcba3_cfwx.jpg" border="0" alt="Mahdi AmirMousavi" class="ta-avatar"/>
-  <div class="ta-info">
-    <strong>Mahdi AmirMousavi</strong> — 
-    email: <a href="mailto:Seyyedhajji.137@gmail.com">Seyyedhajji.137@gmail.com</a>
+    /* Regular TAs Grid */
+    .regular-tas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .ta-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      padding: 1.8rem 1.2rem 1.5rem;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .ta-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      border-color: rgba(67, 97, 238, 0.2);
+    }
+
+    .ta-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f0f4ff;
+      margin: 0 auto 1.4rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .ta-card:hover .ta-avatar {
+      transform: scale(1.05);
+      border-color: var(--light);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .ta-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .ta-email {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .ta-role {
+      background: var(--light-gray);
+      color: var(--gray);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: inline-block;
+      letter-spacing: 0.3px;
+    }
+
+    .ta-role.hta {
+      background: linear-gradient(135deg, #4cc9f0, #4361ee);
+      color: white;
+      box-shadow: 0 4px 12px rgba(76, 201, 240, 0.3);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .head-tas {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      
+      .regular-tas {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .regular-tas {
+        grid-template-columns: 1fr;
+      }
+      
+      .head-ta-avatar {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+
+  <!-- Head TAs -->
+  <div class="head-tas">
+    <div class="head-ta-card">
+      <img src="https://s6.uupload.ir/files/2a48e619-3bbb-46fd-bbd3-1e03ddb9ef7e_sy83.jpg" alt="AmirHossein Hosseini Jebbeli" class="head-ta-avatar"/>
+      <div class="head-ta-name">AmirHossein Hosseini Jebbeli</div>
+      <span class="head-ta-email">— email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a></span>
+      <div class="head-ta-role">Head TA</div>
+    </div>
+    <div class="head-ta-card">
+      <img src="https://s6.uupload.ir/files/b10f6874-57fd-46e3-a3a7-de2a6be93a71_ju4q.jpg" alt="Aryan Darpouy" class="head-ta-avatar"/>
+      <div class="head-ta-name">Aryan Darpouy</div>
+      <span class="head-ta-email">— email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a></span>
+      <div class="head-ta-role">Head TA</div>
+    </div>
   </div>
-</li>
-  
-</ul>
-    </section>
+
+  <!-- Regular TAs -->
+  <div class="regular-tas">
+    <!-- Ramin Buzarpur: Quiz HTA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/c6f7de58-209f-4313-9da0-618f38084874_818.jpg" alt="Ramin Buzarpur" class="ta-avatar"/>
+      <div class="ta-name">Ramin Buzarpur</div>
+      <span class="ta-email">— email: <a href="mailto:raminbuzarpur@gmail.com">raminbuzarpur@gmail.com</a></span>
+      <div class="ta-role hta">Quiz HTA</div>
+    </div>
+    
+    <!-- Kiarash Sohrabi: HW HTA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/a7228230-4ed9-43d7-bc6e-5ae1c948aeac_qgr6.jpg" alt="Kiarash Sohrabi" class="ta-avatar"/>
+      <div class="ta-name">Kiarash Sohrabi</div>
+      <span class="ta-email">— email: <a href="mailto:kiarashs37@gmail.com">kiarashs37@gmail.com</a></span>
+      <div class="ta-role hta">HW HTA</div>
+    </div>
+    
+    <!-- Ilya Ebrahimi: Class HTA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/ilya_ebrahimi_maif.jpg" alt="Ilya Ebrahimi" class="ta-avatar"/>
+      <div class="ta-name">Ilya Ebrahimi</div>
+      <span class="ta-email">— email: <a href="mailto:iliyaebrahimiwork1000@gmail.com">iliyaebrahimiwork1000@gmail.com</a></span>
+      <div class="ta-role hta">Class HTA</div>
+    </div>
+    
+    <!-- Amin Shiravani: Project HTA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/ca1a2750-ceb2-44d6-b6b2-d5b1d27c5071_iafs.jpg" alt="Amin Shiravani" class="ta-avatar"/>
+      <div class="ta-name">Amin Shiravani</div>
+      <span class="ta-email">— email: <a href="mailto:aminshiravani84@gmail.com">aminshiravani84@gmail.com</a></span>
+      <div class="ta-role hta">Project HTA</div>
+    </div>
+    
+    <!-- Parsa Zargar: Monitoring HTA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/46b81b3c-e095-4f88-820b-553fd88b78d6_qwx3.jpg" alt="Parsa Zargar" class="ta-avatar"/>
+      <div class="ta-name">Parsa Zargar</div>
+      <span class="ta-email">— email: <a href="mailto:parsa.zargar2014@gmail.com">parsa.zargar2014@gmail.com</a></span>
+      <div class="ta-role hta">Monitoring HTA</div>
+    </div>
+    
+    <!-- Parsa Hasani: Class HTA2 -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/9fb7dc4f-1d52-4121-b824-46f23d9b65e5_h920.jpg" alt="Parsa Hasani" class="ta-avatar"/>
+      <div class="ta-name">Parsa Hasani</div>
+      <span class="ta-email">— email: <a href="mailto:mhmdparsahsny@gmail.com">mhmdparsahsny@gmail.com</a></span>
+      <div class="ta-role hta">Class HTA2</div>
+    </div>
+    
+    <!-- Kasra Shariati: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/9740a09d-d9d8-42cc-bb6e-238cb5c0b833_b5bt.jpg" alt="Kasra Shariati" class="ta-avatar"/>
+      <div class="ta-name">Kasra Shariati</div>
+      <span class="ta-email">— email: <a href="mailto:chemistrylove.clash@gmail.com">chemistrylove.clash@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Eiliya Almasi: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/untitled2_urf5.jpg" alt="Eiliya Almasi" class="ta-avatar"/>
+      <div class="ta-name">Eiliya Almasi</div>
+      <span class="ta-email">— email: <a href="mailto:almasi.eiliya@gmail.com">almasi.eiliya@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Mahdi Najafi: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/untitled_25sp.jpg" alt="Mahdi Najafi" class="ta-avatar"/>
+      <div class="ta-name">Mahdi Najafi</div>
+      <span class="ta-email">— email: <a href="mailto:mahdina1385@gmail.com">mahdina1385@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Armin Buzarpur: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/50c4988f-887a-4f23-a175-04efcd0fe166_zzv.jpg" alt="Armin Buzarpur" class="ta-avatar"/>
+      <div class="ta-name">Armin Buzarpur</div>
+      <span class="ta-email">— email: <a href="mailto:arminboozarpour83@gmail.com">arminboozarpour83@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Mohammadreza Hasani: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/4533b5e6-6dd2-4883-bc24-b81fbb653403_4gwt.jpg" alt="Mohammadreza Hasani" class="ta-avatar"/>
+      <div class="ta-name">Mohammadreza Hasani</div>
+      <span class="ta-email">— email: <a href="mailto:m.r.hassani8585@gmail.com">m.r.hassani8585@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Amirreza Talebi: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/6026093915679084224_3f4g.jpg" alt="Amirreza Talebi" class="ta-avatar"/>
+      <div class="ta-name">Amirreza Talebi</div>
+      <span class="ta-email">— email: <a href="mailto:taleb.joojadeh@gmail.com">taleb.joojadeh@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+    
+    <!-- Mahdi AmirMousavi: TA -->
+    <div class="ta-card">
+      <img src="https://s6.uupload.ir/files/6436fa19-8e05-40a2-8050-31bf6a7bcba3_cfwx.jpg" alt="Mahdi AmirMousavi" class="ta-avatar"/>
+      <div class="ta-name">Mahdi AmirMousavi</div>
+      <span class="ta-email">— email: <a href="mailto:Seyyedhajji.137@gmail.com">Seyyedhajji.137@gmail.com</a></span>
+      <div class="ta-role">TA</div>
+    </div>
+  </div>
+</section>
 
     
     <!-- ===== SLIDES ===== -->
