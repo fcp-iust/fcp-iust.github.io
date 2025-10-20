@@ -6,6 +6,7 @@
   <title>Fundamentals of Programming — FCP-IUST-4041</title>
   <meta name="description" content="FCP-IUST-4041 — Fundamentals of Programming: slides, social links, assignments, policy, TA, and mentors." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     /* ===== Base ===== */
     * { 
@@ -20,14 +21,15 @@
       --secondary: #7209b7;
       --accent: #f72585;
       --light: #f8f9fa;
-      --dark: #212529;
-      --gray: #6c757d;
-      --light-gray: #e9ecef;
+      --dark: #0f172a;
+      --gray: #94a3b8;
+      --light-gray: #e2e8f0;
       --success: #4cc9f0;
-      --card-bg: #ffffff;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      --border-radius: 16px;
-      --transition: all 0.3s ease;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      --border-radius: 24px;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
     html { 
@@ -37,44 +39,78 @@
     
     body { 
       margin: 0; 
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-      line-height: 1.6; 
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
-      color: var(--dark); 
+      font-family: 'Poppins', sans-serif; 
+      line-height: 1.7; 
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0; 
       min-height: 100vh;
-      padding-bottom: 2rem;
+      padding-bottom: 4rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(114, 9, 183, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(247, 37, 133, 0.1) 0%, transparent 30%);
+      z-index: -1;
     }
     
     a { 
       color: var(--primary); 
       text-decoration: none;
       transition: var(--transition);
+      font-weight: 600;
     }
     
     a:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
+      color: var(--accent);
+      text-decoration: none;
+      transform: translateY(-2px);
     }
     
     .container { 
-      max-width: 1200px; 
+      max-width: 1400px; 
       margin: 0 auto; 
-      padding: 0 1.5rem; 
+      padding: 0 2rem; 
     }
     
     .card { 
       background: var(--card-bg); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: var(--border-radius); 
-      padding: 1.75rem;
+      padding: 2.5rem;
       box-shadow: var(--shadow); 
-      margin-bottom: 1.75rem; 
+      margin-bottom: 2.5rem; 
       transition: var(--transition);
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid var(--card-border);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      opacity: 0.7;
     }
     
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
     }
     
     .muted { 
@@ -83,183 +119,232 @@
     }
     
     h1, h2, h3, h4 {
-      margin-bottom: 1rem;
-      color: var(--dark);
+      margin-bottom: 1.25rem;
+      color: #f1f5f9;
       font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
     }
     
     h1 {
-      font-size: 2.25rem;
-      line-height: 1.2;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      background: linear-gradient(90deg, #4cc9f0, #4361ee, #7209b7, #f72585);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-top: 1rem;
     }
     
     h2 {
-      font-size: 1.75rem;
+      font-size: 2.25rem;
       position: relative;
-      padding-bottom: 0.75rem;
+      padding-bottom: 1rem;
+      display: flex;
+      align-items: center;
     }
     
-    h2:after {
+    h2::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 60px;
+      width: 80px;
       height: 4px;
-      background: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       border-radius: 2px;
     }
     
     ul {
-      padding-left: 1.5rem;
-      margin: 1rem 0;
+      padding-left: 1.75rem;
+      margin: 1.5rem 0;
     }
     
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+    
+    li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
     }
     
     table {
       width: 100%; 
       border-collapse: collapse; 
-      margin: 1rem 0;
+      margin: 1.5rem 0;
       border-radius: var(--border-radius);
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
     
     th, td { 
-      padding: 1rem; 
+      padding: 1.25rem; 
       text-align: left; 
     }
     
     th { 
-      background: var(--light-gray); 
-      font-weight: 600;
-      color: var(--dark);
+      background: rgba(67, 97, 238, 0.2); 
+      font-weight: 700;
+      color: #f1f5f9;
+      font-family: 'Orbitron', sans-serif;
     }
     
     tr:nth-child(even) {
-      background-color: rgba(0,0,0,0.02);
+      background-color: rgba(255, 255, 255, 0.03);
     }
     
     tr:hover {
-      background-color: rgba(67, 97, 238, 0.05);
+      background-color: rgba(67, 97, 238, 0.1);
     }
     
     .badge { 
       display:inline-block; 
-      padding: 0.25rem 0.75rem; 
+      padding: 0.35rem 1rem; 
       border-radius: 50px; 
-      font-size: 0.85rem; 
-      font-weight: 600;
-      color: var(--primary);
-      background: rgba(67, 97, 238, 0.1);
-      border: 1px solid rgba(67, 97, 238, 0.2);
+      font-size: 0.9rem; 
+      font-weight: 700;
+      color: var(--accent);
+      background: rgba(247, 37, 133, 0.15);
+      border: 1px solid rgba(247, 37, 133, 0.3);
+      font-family: 'Orbitron', sans-serif;
     }
     
     /* ===== Header & Nav ===== */
     header { 
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.95) 100%); 
       position: sticky; 
       top: 0; 
-      z-index: 100; 
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .brand { 
       display: flex; 
       align-items: center; 
-      gap: 1.25rem; 
-      padding: 1.25rem 0;
+      gap: 2rem; 
+      padding: 1.5rem 0;
     }
     
     .brand img { 
-      width: 70px; 
-      height: 70px; 
+      width: 90px; 
+      height: 90px; 
       object-fit: contain; 
-      border-radius: 12px;
-      background: rgba(255,255,255,0.2);
-      padding: 8px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      padding: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
     }
     
     .title { 
       margin: 0; 
-      color: white;
-      font-size: 1.8rem;
+      color: #f1f5f9;
+      font-size: 2.2rem;
       font-weight: 800;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(90deg, #4cc9f0, #4361ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     .subtitle { 
-      margin: 0.25rem 0 0; 
-      color: rgba(255,255,255,0.9); 
+      margin: 0.5rem 0 0; 
+      color: #cbd5e1; 
       font-weight: 500;
+      font-size: 1.1rem;
     }
     
     .subtitle strong {
-      color: white;
+      color: #f1f5f9;
+      background: linear-gradient(90deg, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     nav.nav { 
       display: flex; 
       flex-wrap: wrap; 
-      gap: 0.75rem; 
-      margin: 1.25rem 0 1rem; 
+      gap: 1rem; 
+      margin: 1.5rem 0 1.25rem; 
+      justify-content: center;
     }
     
     nav.nav a { 
       text-decoration: none; 
-      padding: 0.6rem 1.2rem; 
+      padding: 0.8rem 1.5rem; 
       border-radius: 50px; 
-      background: rgba(255,255,255,0.15);
-      color: white;
+      background: rgba(255,255,255,0.08);
+      color: #e2e8f0;
       font-weight: 600;
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
       transition: var(--transition);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
     }
     
     nav.nav a:hover { 
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-2px);
-      text-decoration: none;
+      background: rgba(67, 97, 238, 0.3);
+      transform: translateY(-3px);
+      color: white;
+      border-color: rgba(67, 97, 238, 0.4);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    nav.nav a.active {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
     }
     
     /* ===== Social Links ===== */
     .social-links {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.75rem;
+      margin-top: 1.5rem;
     }
     
     .social-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: var(--light);
-      border-radius: 12px;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
       transition: var(--transition);
-      border: 1px solid var(--light-gray);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
     }
     
     .social-item:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      border-color: rgba(67, 97, 238, 0.3);
     }
     
     .social-icon {
-      width: 48px;
-      height: 48px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
     }
     
     .social-text {
@@ -268,64 +353,200 @@
     
     .social-text strong {
       display: block;
-      margin-bottom: 0.25rem;
-      color: var(--dark);
+      margin-bottom: 0.5rem;
+      color: #f1f5f9;
+      font-family: 'Orbitron', sans-serif;
     }
     
+    /* ===== TAs Section ===== */
+    .ta-grid {
+      display: grid;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .head-tas {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .head-ta-card {
+      text-align: center;
+      max-width: 260px;
+      transition: var(--transition);
+    }
+
+    .head-ta-card:hover {
+      transform: translateY(-15px) scale(1.05);
+    }
+
+    .head-ta-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid transparent;
+      box-shadow: 0 15px 40px rgba(67, 97, 238, 0.4);
+      margin: 0 auto 1.5rem;
+      transition: var(--transition);
+      background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+      padding: 4px;
+      position: relative;
+    }
+    
+    .head-ta-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.9);
+    }
+
+    .head-ta-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .head-ta-email {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .head-ta-role {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .regular-tas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.2rem;
+    }
+
+    .ta-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      text-align: center;
+      padding: 2.2rem 1.5rem 1.8rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .ta-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(67, 97, 238, 0.3);
+    }
+
+    .ta-avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.2);
+      margin: 0 auto 1.6rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+      background: linear-gradient(45deg, #4361ee, #7209b7);
+      padding: 3px;
+    }
+    
+    .ta-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .ta-card:hover .ta-avatar {
+      transform: scale(1.08);
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .ta-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .ta-email {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .ta-role {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--gray);
+      padding: 0.45rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+      letter-spacing: 0.3px;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .ta-role.hta {
+      background: linear-gradient(135deg, #4cc9f0, #4361ee);
+      color: white;
+      box-shadow: 0 6px 15px rgba(76, 201, 240, 0.4);
+    }
+
     /* ===== Footer ===== */
     footer { 
-      margin-top: 3rem; 
-      padding: 1.5rem 0; 
+      margin-top: 4rem; 
+      padding: 2rem 0; 
       color: var(--gray); 
-      background: var(--card-bg); 
+      background: rgba(15, 23, 42, 0.7);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
       text-align: center;
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
-    
-    /* ===== Responsive Design ===== */
-    @media (max-width: 768px) {
-      .brand {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      nav.nav {
-        justify-content: center;
-      }
-      
-      .social-links {
-        grid-template-columns: 1fr;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .card {
-        padding: 1.25rem;
-      }
-      
-      nav.nav a {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-      }
-    }
-    
+
     /* ===== Animations ===== */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
     }
     
     .card {
-      animation: fadeIn 0.6s ease-out forwards;
+      animation: fadeInUp 0.8s ease-out forwards;
       opacity: 0;
     }
     
@@ -336,9 +557,110 @@
     .card:nth-child(5) { animation-delay: 0.5s; }
     .card:nth-child(6) { animation-delay: 0.6s; }
     .card:nth-child(7) { animation-delay: 0.7s; }
+    .card:nth-child(8) { animation-delay: 0.8s; }
+    
+    /* Floating elements */
+    .floating {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(67, 97, 238, 0.2) 0%, transparent 70%);
+      z-index: -1;
+    }
+    
+    .floating-1 {
+      width: 300px;
+      height: 300px;
+      top: 10%;
+      left: 5%;
+      animation: float 15s infinite ease-in-out;
+    }
+    
+    .floating-2 {
+      width: 200px;
+      height: 200px;
+      bottom: 15%;
+      right: 8%;
+      animation: float 18s infinite ease-in-out reverse;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(20px, 20px); }
+      50% { transform: translate(0, 40px); }
+      75% { transform: translate(-20px, 20px); }
+    }
+    
+    /* ===== Responsive Design ===== */
+    @media (max-width: 992px) {
+      .head-tas {
+        gap: 3rem;
+      }
+      
+      .regular-tas {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .brand {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      
+      nav.nav {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .social-links {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .head-tas {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.8rem;
+      }
+      
+      nav.nav a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+      }
+      
+      .regular-tas {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .head-ta-avatar {
+        width: 160px;
+        height: 160px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Floating elements -->
+  <div class="floating floating-1"></div>
+  <div class="floating floating-2"></div>
 
   <!-- ===== HEADER ===== -->
   <header>
@@ -353,7 +675,7 @@
         </div>
       </div>
       <nav class="nav">
-        <a href="#home">Home</a>
+        <a href="#home" class="active">Home</a>
         <a href="#slides">Slides</a>
         <a href="#social">Social Links</a>
         <a href="#assignments">Assignments</a>
@@ -375,326 +697,185 @@
       <p class="muted">All external links open in a new tab.</p>
     </section>
 
-    
     <!-- ===== TAs ===== -->
-    <!-- ===== TAs ===== -->
-<section id="tas" class="card">
-  <h2>Teaching Assistants</h2>
-  <style>
-    .ta-grid {
-      display: grid;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-
-    /* Head TAs Section */
-    .head-tas {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #f0f4ff;
-    }
-
-    .head-ta-card {
-      text-align: center;
-      max-width: 220px;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .head-ta-card:hover {
-      transform: translateY(-10px) scale(1.03);
-    }
-
-    .head-ta-avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-      box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
-      margin: 0 auto 1.2rem;
-      transition: all 0.3s ease;
-    }
-
-    .head-ta-card:hover .head-ta-avatar {
-      border-color: var(--secondary);
-      box-shadow: 0 12px 35px rgba(114, 9, 183, 0.4);
-    }
-
-    .head-ta-name {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-
-    .head-ta-email {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    .head-ta-role {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 0.4rem 1.2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      display: inline-block;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
-    }
-
-    /* Regular TAs Grid */
-    .regular-tas {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .ta-card {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      text-align: center;
-      padding: 1.8rem 1.2rem 1.5rem;
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .ta-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-      border-color: rgba(67, 97, 238, 0.2);
-    }
-
-    .ta-avatar {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #f0f4ff;
-      margin: 0 auto 1.4rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .ta-card:hover .ta-avatar {
-      transform: scale(1.05);
-      border-color: var(--light);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .ta-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
-    }
-
-    .ta-email {
-      color: var(--gray);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .ta-role {
-      background: var(--light-gray);
-      color: var(--gray);
-      padding: 0.35rem 1rem;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      display: inline-block;
-      letter-spacing: 0.3px;
-    }
-
-    .ta-role.hta {
-      background: linear-gradient(135deg, #4cc9f0, #4361ee);
-      color: white;
-      box-shadow: 0 4px 12px rgba(76, 201, 240, 0.3);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .head-tas {
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-      }
+    <section id="tas" class="card">
+      <h2>Teaching Assistants</h2>
       
-      .regular-tas {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-    }
+      <!-- Head TAs -->
+      <div class="head-tas">
+        <div class="head-ta-card">
+          <div class="head-ta-avatar">
+            <img src="https://s6.uupload.ir/files/2a48e619-3bbb-46fd-bbd3-1e03ddb9ef7e_sy83.jpg" alt="AmirHossein Hosseini Jebbeli"/>
+          </div>
+          <div class="head-ta-name">A.H. Hosseini</div>
+          <span class="head-ta-email">— email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a></span>
+          <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/amir_jebbeli">@Amir_Jebbeli</a></span>
+          <div class="head-ta-role">Head TA</div>
+        </div>
+        <div class="head-ta-card">
+          <div class="head-ta-avatar">
+            <img src="https://s6.uupload.ir/files/b10f6874-57fd-46e3-a3a7-de2a6be93a71_ju4q.jpg" alt="Aryan Darpouy"/>
+          </div>
+          <div class="head-ta-name">Aryan Darpouy</div>
+          <span class="head-ta-email">— email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a></span>
+          <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/aryandarpouy">@aryandarpouy</a></span>
+          <div class="head-ta-role">Head TA</div>
+        </div>
+      </div>
 
-    @media (max-width: 480px) {
-      .regular-tas {
-        grid-template-columns: 1fr;
-      }
-      
-      .head-ta-avatar {
-        width: 150px;
-        height: 150px;
-      }
-    }
-  </style>
+      <!-- Regular TAs -->
+      <div class="regular-tas">
+        <!-- Ramin Buzarpur: Quiz HTA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/c6f7de58-209f-4313-9da0-618f38084874_818.jpg" alt="Ramin Buzarpur"/>
+          </div>
+          <div class="ta-name">Ramin Buzarpur</div>
+          <span class="ta-email">— email: <a href="mailto:raminbuzarpur@gmail.com">raminbuzarpur@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/alien_hawk">@alien_hawk</a></span>
+          <div class="ta-role hta">Quiz HTA</div>
+        </div>
+        
+        <!-- Kiarash Sohrabi: HW HTA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/a7228230-4ed9-43d7-bc6e-5ae1c948aeac_qgr6.jpg" alt="Kiarash Sohrabi"/>
+          </div>
+          <div class="ta-name">Kiarash Sohrabi</div>
+          <span class="ta-email">— email: <a href="mailto:kiarashs37@gmail.com">kiarashs37@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/kiasoh">@kiasoh</a></span>
+          <div class="ta-role hta">HW HTA</div>
+        </div>
+        
+        <!-- Ilya Ebrahimi: Class HTA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/ilya_ebrahimi_maif.jpg" alt="Ilya Ebrahimi"/>
+          </div>
+          <div class="ta-name">Ilya Ebrahimi</div>
+          <span class="ta-email">— email: <a href="mailto:iliyaebrahimiwork1000@gmail.com">iliyaebrahimiwork1000@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/EbrahimiWork100">@EbrahimiWork100</a></span>
+          <div class="ta-role hta">Class HTA</div>
+        </div>
+        
+        <!-- Amin Shiravani: Project HTA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/ca1a2750-ceb2-44d6-b6b2-d5b1d27c5071_iafs.jpg" alt="Amin Shiravani"/>
+          </div>
+          <div class="ta-name">Amin Shiravani</div>
+          <span class="ta-email">— email: <a href="mailto:aminshiravani84@gmail.com">aminshiravani84@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/aminkte">@aminkte</a></span>
+          <div class="ta-role hta">Project HTA</div>
+        </div>
+        
+        <!-- Parsa Zargar: Monitoring HTA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/46b81b3c-e095-4f88-820b-553fd88b78d6_qwx3.jpg" alt="Parsa Zargar"/>
+          </div>
+          <div class="ta-name">Parsa Zargar</div>
+          <span class="ta-email">— email: <a href="mailto:parsa.zargar2014@gmail.com">parsa.zargar2014@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/parsazargar">@parsazargar</a></span>
+          <div class="ta-role hta">Monitoring HTA</div>
+        </div>
+        
+        <!-- Parsa Hasani: Class HTA2 -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/9fb7dc4f-1d52-4121-b824-46f23d9b65e5_h920.jpg" alt="Parsa Hasani"/>
+          </div>
+          <div class="ta-name">Parsa Hasani</div>
+          <span class="ta-email">— email: <a href="mailto:mhmdparsahsny@gmail.com">mhmdparsahsny@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/Paaarsssaaa">@Paaarsssaaa</a></span>
+          <div class="ta-role hta">Class HTA2</div>
+        </div>
+        
+        <!-- Kasra Shariati: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/9740a09d-d9d8-42cc-bb6e-238cb5c0b833_b5bt.jpg" alt="Kasra Shariati"/>
+          </div>
+          <div class="ta-name">Kasra Shariati</div>
+          <span class="ta-email">— email: <a href="mailto:chemistrylove.clash@gmail.com">chemistrylove.clash@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/Crazy_aeroScientist">@Crazy_aeroScientist</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Eiliya Almasi: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/untitled2_urf5.jpg" alt="Eiliya Almasi"/>
+          </div>
+          <div class="ta-name">Eiliya Almasi</div>
+          <span class="ta-email">— email: <a href="mailto:almasi.eiliya@gmail.com">almasi.eiliya@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/ilyaAlmasi">@ilyaAlmasi</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Mahdi Najafi: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/untitled_25sp.jpg" alt="Mahdi Najafi"/>
+          </div>
+          <div class="ta-name">Mahdi Najafi</div>
+          <span class="ta-email">— email: <a href="mailto:mahdina1385@gmail.com">mahdina1385@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/mahd1_313">@mahd1_313</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Armin Buzarpur: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/50c4988f-887a-4f23-a175-04efcd0fe166_zzv.jpg" alt="Armin Buzarpur"/>
+          </div>
+          <div class="ta-name">Armin Buzarpur</div>
+          <span class="ta-email">— email: <a href="mailto:arminboozarpour83@gmail.com">arminboozarpour83@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/Wise_Mori">@Wise_Mori</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Mohammadreza Hasani: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/4533b5e6-6dd2-4883-bc24-b81fbb653403_4gwt.jpg" alt="Mohammadreza Hasani"/>
+          </div>
+          <div class="ta-name">Mohammadreza Hasani</div>
+          <span class="ta-email">— email: <a href="mailto:m.r.hassani8585@gmail.com">m.r.hassani8585@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/Mohammadreza_h7">@Mohammadreza_h7</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Amirreza Talebi: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/6026093915679084224_3f4g.jpg" alt="Amirreza Talebi"/>
+          </div>
+          <div class="ta-name">Amirreza Talebi</div>
+          <span class="ta-email">— email: <a href="mailto:taleb.joojadeh@gmail.com">taleb.joojadeh@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/atj_haer">@atj_haer</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+        
+        <!-- Mahdi AmirMousavi: TA -->
+        <div class="ta-card">
+          <div class="ta-avatar">
+            <img src="https://s6.uupload.ir/files/6436fa19-8e05-40a2-8050-31bf6a7bcba3_cfwx.jpg" alt="Mahdi AmirMousavi"/>
+          </div>
+          <div class="ta-name">Mahdi AmirMousavi</div>
+          <span class="ta-email">— email: <a href="mailto:Seyyedhajji.137@gmail.com">Seyyedhajji.137@gmail.com</a></span>
+          <span class="ta-email">— telegram-id: <a href="https://telegram.me/Seyyedhajji">@Seyyedhajji</a></span>
+          <div class="ta-role">TA</div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Head TAs -->
-  <div class="head-tas">
-    <div class="head-ta-card">
-      <img src="https://s6.uupload.ir/files/2a48e619-3bbb-46fd-bbd3-1e03ddb9ef7e_sy83.jpg" alt="AmirHossein Hosseini Jebbeli" class="head-ta-avatar"/>
-      <div class="head-ta-name">A.H. Hosseini</div>
-      <span class="head-ta-email">— email: <a href="mailto:AmirJebbeli77@gmail.com">AmirJebbeli77@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/amir_jebbeli">@Amir_Jebbeli</a></span>
-      <div class="head-ta-role">Head TA</div>
-    </div>
-    <div class="head-ta-card">
-      <img src="https://s6.uupload.ir/files/b10f6874-57fd-46e3-a3a7-de2a6be93a71_ju4q.jpg" alt="Aryan Darpouy" class="head-ta-avatar"/>
-      <div class="head-ta-name">Aryan Darpouy</div>
-      <span class="head-ta-email">— email: <a href="mailto:aryamehrdarpouy@gmail.com">aryamehrdarpouy@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/aryandarpouy">@aryandarpouy</a></span>
-      <div class="head-ta-role">Head TA</div>
-    </div>
-  </div>
-
-  <!-- Regular TAs -->
-  <div class="regular-tas">
-    <!-- Ramin Buzarpur: Quiz HTA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/c6f7de58-209f-4313-9da0-618f38084874_818.jpg" alt="Ramin Buzarpur" class="ta-avatar"/>
-      <div class="ta-name">Ramin Buzarpur</div>
-      <span class="ta-email">— email: <a href="mailto:raminbuzarpur@gmail.com">raminbuzarpur@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/alien_hawk">@alien_hawk</a></span>
-      <div class="ta-role hta">Quiz HTA</div>
-    </div>
-    
-    <!-- Kiarash Sohrabi: HW HTA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/a7228230-4ed9-43d7-bc6e-5ae1c948aeac_qgr6.jpg" alt="Kiarash Sohrabi" class="ta-avatar"/>
-      <div class="ta-name">Kiarash Sohrabi</div>
-      <span class="ta-email">— email: <a href="mailto:kiarashs37@gmail.com">kiarashs37@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/kiasoh">@kiasoh</a></span>
-      <div class="ta-role hta">HW HTA</div>
-    </div>
-    
-    <!-- Ilya Ebrahimi: Class HTA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/ilya_ebrahimi_maif.jpg" alt="Ilya Ebrahimi" class="ta-avatar"/>
-      <div class="ta-name">Ilya Ebrahimi</div>
-      <span class="ta-email">— email: <a href="mailto:iliyaebrahimiwork1000@gmail.com">iliyaebrahimiwork1000@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/EbrahimiWork100">@EbrahimiWork100</a></span>
-      <div class="ta-role hta">Class HTA</div>
-    </div>
-    
-    <!-- Amin Shiravani: Project HTA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/ca1a2750-ceb2-44d6-b6b2-d5b1d27c5071_iafs.jpg" alt="Amin Shiravani" class="ta-avatar"/>
-      <div class="ta-name">Amin Shiravani</div>
-      <span class="ta-email">— email: <a href="mailto:aminshiravani84@gmail.com">aminshiravani84@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/aminkte">@aminkte</a></span>
-      <div class="ta-role hta">Project HTA</div>
-    </div>
-    
-    <!-- Parsa Zargar: Monitoring HTA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/46b81b3c-e095-4f88-820b-553fd88b78d6_qwx3.jpg" alt="Parsa Zargar" class="ta-avatar"/>
-      <div class="ta-name">Parsa Zargar</div>
-      <span class="ta-email">— email: <a href="mailto:parsa.zargar2014@gmail.com">parsa.zargar2014@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/parsazargar">@parsazargar</a></span>
-      <div class="ta-role hta">Monitoring HTA</div>
-    </div>
-    
-    <!-- Parsa Hasani: Class HTA2 -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/9fb7dc4f-1d52-4121-b824-46f23d9b65e5_h920.jpg" alt="Parsa Hasani" class="ta-avatar"/>
-      <div class="ta-name">Parsa Hasani</div>
-      <span class="ta-email">— email: <a href="mailto:mhmdparsahsny@gmail.com">mhmdparsahsny@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/Paaarsssaaa">@Paaarsssaaa</a></span>
-      <div class="ta-role hta">Class HTA2</div>
-    </div>
-    
-    <!-- Kasra Shariati: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/9740a09d-d9d8-42cc-bb6e-238cb5c0b833_b5bt.jpg" alt="Kasra Shariati" class="ta-avatar"/>
-      <div class="ta-name">Kasra Shariati</div>
-      <span class="ta-email">— email: <a href="mailto:chemistrylove.clash@gmail.com">chemistrylove.clash@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/Crazy_aeroScientist">@Crazy_aeroScientist</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Eiliya Almasi: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/untitled2_urf5.jpg" alt="Eiliya Almasi" class="ta-avatar"/>
-      <div class="ta-name">Eiliya Almasi</div>
-      <span class="ta-email">— email: <a href="mailto:almasi.eiliya@gmail.com">almasi.eiliya@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/ilyaAlmasi">@ilyaAlmasi</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Mahdi Najafi: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/untitled_25sp.jpg" alt="Mahdi Najafi" class="ta-avatar"/>
-      <div class="ta-name">Mahdi Najafi</div>
-      <span class="ta-email">— email: <a href="mailto:mahdina1385@gmail.com">mahdina1385@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/mahd1_313">@mahd1_313</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Armin Buzarpur: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/50c4988f-887a-4f23-a175-04efcd0fe166_zzv.jpg" alt="Armin Buzarpur" class="ta-avatar"/>
-      <div class="ta-name">Armin Buzarpur</div>
-      <span class="ta-email">— email: <a href="mailto:arminboozarpour83@gmail.com">arminboozarpour83@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/Wise_Mori">@Wise_Mori</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Mohammadreza Hasani: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/4533b5e6-6dd2-4883-bc24-b81fbb653403_4gwt.jpg" alt="Mohammadreza Hasani" class="ta-avatar"/>
-      <div class="ta-name">Mohammadreza Hasani</div>
-      <span class="ta-email">— email: <a href="mailto:m.r.hassani8585@gmail.com">m.r.hassani8585@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/Mohammadreza_h7">@Mohammadreza_h7</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Amirreza Talebi: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/6026093915679084224_3f4g.jpg" alt="Amirreza Talebi" class="ta-avatar"/>
-      <div class="ta-name">Amirreza Talebi</div>
-      <span class="ta-email">— email: <a href="mailto:taleb.joojadeh@gmail.com">taleb.joojadeh@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/atj_haer">@atj_haer/</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-    
-    <!-- Mahdi AmirMousavi: TA -->
-    <div class="ta-card">
-      <img src="https://s6.uupload.ir/files/6436fa19-8e05-40a2-8050-31bf6a7bcba3_cfwx.jpg" alt="Mahdi AmirMousavi" class="ta-avatar"/>
-      <div class="ta-name">Mahdi AmirMousavi</div>
-      <span class="ta-email">— email: <a href="mailto:Seyyedhajji.137@gmail.com">Seyyedhajji.137@gmail.com</a></span>
-      <span class="head-ta-email">— telegram-id: <a href="https://telegram.me/Seyyedhajji">@Seyyedhajji/</a></span>
-      <div class="ta-role">TA</div>
-    </div>
-  </div>
-</section>
-
-    
     <!-- ===== SLIDES ===== -->
     <section id="slides" class="card">
       <h2>Slides</h2>
       <table>
         <thead><tr><th style="width:80px">#</th><th>Title</th><th style="width:220px">Link</th></tr></thead>
         <tbody>
-          <!-- Put the real file links later (href="#") -->
           <tr><td>1.1</td><td>IO</td><td><a href="https://uupload.ir/view/1.1-_i-o_operators_j3dl.pptx/" target="_blank" rel="noopener">Download</a></td></tr>
           <tr><td>1.2</td><td>Conditions</td><td><a href="https://uupload.ir/view/1.2_-_conditions_xzjk.pptx/" target="_blank" rel="noopener">Download</a></td></tr>
           <tr><td>2</td><td>Loops</td><td><a href="https://uupload.ir/view/2-loops_4t9l.pptx/" target="_blank" rel="noopener">Download</a></td></tr>
@@ -712,7 +893,7 @@
       <h2>Social Links & Course Resources</h2>
       <div class="social-links">
         <div class="social-item">
-          <div class="social-icon" style="background: #4CAF50;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">
             <i class="fab fa-quora"></i>
           </div>
           <div class="social-text">
@@ -722,7 +903,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #0088cc;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #0088cc, #005a87);">
             <i class="fab fa-telegram"></i>
           </div>
           <div class="social-text">
@@ -732,7 +913,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #0088cc;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #0088cc, #005a87);">
             <i class="fab fa-telegram-plane"></i>
           </div>
           <div class="social-text">
@@ -742,7 +923,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #34A853;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #34A853, #1e7e34);">
             <i class="fab fa-google"></i>
           </div>
           <div class="social-text">
@@ -752,7 +933,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #4361ee;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #4361ee, #3a56d4);">
             <i class="fas fa-globe"></i>
           </div>
           <div class="social-text">
@@ -762,7 +943,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #FF0000;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #FF0000, #b30000);">
             <i class="fab fa-youtube"></i>
           </div>
           <div class="social-text">
@@ -772,7 +953,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #333;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #333, #1a1a1a);">
             <i class="fab fa-github"></i>
           </div>
           <div class="social-text">
@@ -782,7 +963,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #E1306C;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #E1306C, #ad1457);">
             <i class="fab fa-instagram"></i>
           </div>
           <div class="social-text">
@@ -792,7 +973,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #D44638;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #D44638, #b3392b);">
             <i class="fas fa-envelope"></i>
           </div>
           <div class="social-text">
@@ -802,7 +983,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #0088cc;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #0088cc, #005a87);">
             <i class="fab fa-telegram"></i>
           </div>
           <div class="social-text">
@@ -812,7 +993,7 @@
         </div>
         
         <div class="social-item">
-          <div class="social-icon" style="background: #4361ee;">
+          <div class="social-icon" style="background: linear-gradient(135deg, #4361ee, #3a56d4);">
             <i class="fas fa-globe"></i>
           </div>
           <div class="social-text">
@@ -859,7 +1040,6 @@
       <table>
         <thead><tr><th style="width:60px">#</th><th>Student</th><th>Mentor</th></tr></thead>
         <tbody>
-          <!-- 30 placeholder rows -->
           <tr><td>1</td><td>احسان متوسل - @evit85</td><td>پارسا زرگر</td></tr>
           <tr><td>2</td><td>صالح صادقی - @SS022302</td><td>پارسا زرگر</td></tr>
           <tr><td>3</td><td>پوریا قیومی - @PooryaGhayoomi</td><td>کسرا شریعتی</td></tr>
@@ -876,7 +1056,7 @@
           <tr><td>14</td><td>حمیدرضا جعفری - @HrJabc</td><td>مهدی نجفی</td></tr>
           <tr><td>15</td><td>علیرضا محمدیان - @</td><td>امیرحسین حسینی جبلی</td></tr>
           <tr><td>16</td><td>عماد نبوی - @Semad36</td><td>امیرحسین حسینی جبلی</td></tr>
-          <tr><td>17</td><td>حسین اسماعیل آبادی - @Hosseinea0</td><td>محمدرضا حسنی</td></tr>
+          <tr><td>17</td><td>حسین اسماعیل آبادی - @Hosseinea0</td><td>محمدرضا جعفری</td></tr>
           <tr><td>18</td><td>محمد مریخ - @Thisis_Mars</td><td>محمدرضاحسنی</td></tr>
           <tr><td>19</td><td>امید زمزمی - @omid_zz</td><td>ایلیا ابراهیمی</td></tr>
           <tr><td>20</td><td>رهام بنازاده - @Rohamb4</td><td>ایلیا ابراهیمی</td></tr>
@@ -898,8 +1078,59 @@
 
   <footer>
     <div class="container">
-      <small>© 2025 – FCP-IUST</small>
+      <small>© 2025 – FCP-IUST | Designed with ❤️ for the future of programming</small>
     </div>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav.nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('nav.nav a').forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Add active class to current section on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav.nav a');
+      
+      let currentSection = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          currentSection = '#' + section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === currentSection) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
