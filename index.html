@@ -844,7 +844,12 @@
     align-items: center;
   }
 }
-    
+
+    .zoom-container {
+  overflow: hidden;
+  width: 100%;
+      height: calc(100vh * 0.85);
+}
   /* ===== Zoom Effect for Desktop Only ===== */
   @media (min-width: 768px) {
     .zoom-wrapper {
@@ -894,7 +899,7 @@
       </nav>
     </div>
   </header>
-
+  <div class="zoom-container">
   <div class="zoom-wrapper">
   <main class="container">
     <!-- ===== HOME ===== -->
@@ -1361,12 +1366,14 @@
     </section>
   </main>
   
+    </div>
+  </div>
+  
   <footer>
     <div class="container">
       <small>© 2025 – FCP-IUST | Designed with A.H. Hosseini Jebbeli for the future of programming</small>
     </div>
   </footer>
-    </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Toggle mobile menu
