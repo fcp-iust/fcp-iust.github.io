@@ -844,9 +844,21 @@
     align-items: center;
   }
 }
+    
+  /* ===== Zoom Effect for Desktop Only ===== */
+  @media (min-width: 768px) {
+    .zoom-wrapper {
+      transform: scale(0.9);
+      transform-origin: top left;
+      width: 111.11%; /* 1 / 0.9 ≈ 1.1111 */
+      margin: 0 auto;
+      padding-bottom: 5rem; /* جبران فضای کم شده از پایین */
+    }
+  }
+
   </style>
 </head>
-<body>
+<body style="overflow-x: hidden;">
   <!-- Theme Toggle Button -->
   <div class="theme-toggle" id="themeToggle">
     <i class="fas fa-moon"></i>
@@ -881,6 +893,8 @@
       </nav>
     </div>
   </header>
+
+  <div class="zoom-wrapper">
   <main class="container">
     <!-- ===== HOME ===== -->
     <section id="home" class="card">
@@ -1345,6 +1359,7 @@
         </div>
     </section>
   </main>
+  </div>
   <footer>
     <div class="container">
       <small>© 2025 – FCP-IUST | Designed with A.H. Hosseini Jebbeli for the future of programming</small>
