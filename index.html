@@ -46,6 +46,9 @@
     }
     /* ===== Base ===== */
 :root.light-theme {
+  background: rgba(255,255,255,0.2); /* پس‌زمینه شفاف‌تر و نرم */
+  border: 1px solid rgba(67, 97, 238, 0.3); /* حاشیه با رنگ اصلی جذاب */
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3); /* سایه رنگی و جذاب */
   --primary: #4361ee;
   --primary-dark: #3a56d4;
   --secondary: #7209b7;
@@ -77,6 +80,16 @@
   /* ✅ اضافه کردن گرادیان‌های جذاب برای عنوان و نام‌ها در تم روشن */
   --title-gradient: linear-gradient(90deg, #1e293b, #334155, #000000); /* ← گرادیان تیره برای عنوان */
   --name-gradient: linear-gradient(90deg, #4361ee, #7209b7); /* ← گرادیان زیبا برای نام‌ها */
+}
+    .brand img { 
+  width: 90px; 
+  height: 90px; 
+  object-fit: contain; 
+  border-radius: 16px;
+  background: rgba(255,255,255,0.1); /* در تم دارک */
+  padding: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
 }
     html { 
       scroll-behavior: smooth; 
