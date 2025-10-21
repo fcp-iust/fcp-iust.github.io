@@ -66,12 +66,12 @@
       --muted-color: #6c757d;
       --nav-bg: rgba(255, 255, 255, 0.9);
       --nav-border: rgba(0, 0, 0, 0.1);
-      --nav-hover: rgba(67, 97, 238, 0.1);
+      --nav-hover: rgba(67, 97, 238, 0.15);
       --nav-active: linear-gradient(90deg, var(--primary), var(--secondary));
       --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
       --floating-1-color: rgba(67, 97, 238, 0.1);
       --floating-2-color: rgba(114, 9, 183, 0.1);
-      --footer-bg: rgba(248, 249, 250, 0.9);
+      --footer-bg: rgba(248, 249, 250, 0.95);
     }
     html { 
       scroll-behavior: smooth; 
@@ -143,7 +143,7 @@
     .card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: var(--card-border);
     }
     .muted { 
       color: var(--muted-color); 
@@ -164,6 +164,12 @@
       background-clip: text;
       text-align: center;
       margin-top: 1rem;
+    }
+    :root.light-theme h1 {
+      background: linear-gradient(90deg, #0f172a, #1e293b, #334155, #475569);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     h2 {
       font-size: 2.25rem;
@@ -224,8 +230,17 @@
     tr:nth-child(even) {
       background-color: rgba(255, 255, 255, 0.03);
     }
+    :root.light-theme tr:nth-child(even) {
+      background-color: rgba(241, 245, 249, 0.7);
+    }
+    :root.light-theme tr:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
     tr:hover {
       background-color: rgba(67, 97, 238, 0.1);
+    }
+    :root.light-theme tr:hover {
+      background-color: rgba(67, 97, 238, 0.15);
     }
     .badge { 
       display:inline-block; 
@@ -276,14 +291,29 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    :root.light-theme .title {
+      background: linear-gradient(90deg, #1e293b, #334155);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     .subtitle { 
       margin: 0.5rem 0 0; 
       color: #cbd5e1; 
       font-weight: 500;
       font-size: 1.1rem;
     }
+    :root.light-theme .subtitle {
+      color: #475569;
+    }
     .subtitle strong {
       color: #f1f5f9;
+      background: linear-gradient(90deg, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    :root.light-theme .subtitle strong {
       background: linear-gradient(90deg, #4361ee, #7209b7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -316,6 +346,11 @@
       border-color: rgba(67, 97, 238, 0.4);
       box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
     }
+    :root.light-theme nav.nav a:hover {
+      color: #1e293b;
+      background: rgba(241, 245, 249, 0.8);
+      border-color: rgba(67, 97, 238, 0.3);
+    }
     nav.nav a.active {
       background: var(--nav-active);
       color: white;
@@ -338,6 +373,10 @@
       transition: var(--transition);
       border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
+    }
+    :root.light-theme .social-item {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
     .social-item:hover {
       transform: translateY(-5px);
@@ -378,6 +417,9 @@
       margin-bottom: 3.5rem;
       padding-bottom: 2.5rem;
       border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    :root.light-theme .head-tas {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
     .head-ta-card {
       text-align: center;
@@ -449,6 +491,10 @@
       border: 1px solid rgba(255,255,255,0.08);
       backdrop-filter: blur(10px);
     }
+    :root.light-theme .ta-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
     .ta-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -503,6 +549,11 @@
       letter-spacing: 0.3px;
       font-family: 'Orbitron', sans-serif;
     }
+    :root.light-theme .ta-role {
+      background: rgba(241, 245, 249, 0.7);
+      color: #475569;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
     .ta-role.hta {
       background: linear-gradient(135deg, #4cc9f0, #4361ee);
       color: white;
@@ -546,6 +597,10 @@
       backdrop-filter: blur(10px);
       border-top: 1px solid rgba(255,255,255,0.1);
     }
+    :root.light-theme footer {
+      color: #475569;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
     /* ===== Animations ===== */
     @keyframes fadeInUp {
       from { 
@@ -587,20 +642,24 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(10px);
     }
+    :root.light-theme .theme-toggle {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+    }
     .theme-toggle:hover {
       transform: rotate(180deg);
       background: rgba(67, 97, 238, 0.2);
+    }
+    :root.light-theme .theme-toggle:hover {
+      background: rgba(67, 97, 238, 0.15);
     }
     .theme-toggle i {
       color: #e2e8f0;
       font-size: 1.5rem;
       transition: var(--transition);
     }
-    .theme-toggle.dark-mode i {
+    :root.light-theme .theme-toggle i {
       color: #1e293b;
-    }
-    .theme-toggle.light-mode i {
-      color: #e2e8f0;
     }
   </style>
 </head>
@@ -1100,70 +1159,69 @@
     </div>
   </footer>
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
 
-    // تنظیم اولیه: پیش‌فرض تاریک
-    icon.classList.remove('fa-sun');
-    icon.classList.add('fa-moon');
-    themeToggle.classList.add('dark-mode');
-    // نیازی به بررسی localStorage نیست — پیش‌فرض تاریک
+      // Set initial icon
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+      themeToggle.classList.add('dark-mode');
 
-    themeToggle.addEventListener('click', function() {
-      const html = document.documentElement; // <-- مهم: :root = <html>
-      
-      if (html.classList.contains('light-theme')) {
-        html.classList.remove('light-theme');
-        themeToggle.classList.remove('light-mode');
-        themeToggle.classList.add('dark-mode');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      } else {
-        html.classList.add('light-theme');
-        themeToggle.classList.remove('dark-mode');
-        themeToggle.classList.add('light-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      }
-    });
-
-    // Smooth scroll و active link — بدون تغییر
-    document.querySelectorAll('nav.nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelectorAll('nav.nav a').forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+      themeToggle.addEventListener('click', function() {
+        const html = document.documentElement;
+        if (html.classList.contains('light-theme')) {
+          html.classList.remove('light-theme');
+          themeToggle.classList.remove('light-mode');
+          themeToggle.classList.add('dark-mode');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        } else {
+          html.classList.add('light-theme');
+          themeToggle.classList.remove('dark-mode');
+          themeToggle.classList.add('light-mode');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
         }
       });
-    });
 
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const navLinks = document.querySelectorAll('nav.nav a');
-      let currentSection = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-          currentSection = '#' + section.getAttribute('id');
-        }
+      // Smooth scrolling
+      document.querySelectorAll('nav.nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('nav.nav a').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === currentSection) {
-          link.classList.add('active');
-        }
+
+      // Active link on scroll
+      window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav.nav a');
+        let currentSection = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+          if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+            currentSection = '#' + section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === currentSection) {
+            link.classList.add('active');
+          }
+        });
       });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
