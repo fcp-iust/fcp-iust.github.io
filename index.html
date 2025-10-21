@@ -304,15 +304,12 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-    .subtitle { 
-      margin: 0.5rem 0 0; 
-      color: #cbd5e1; 
-      font-weight: 500;
-      font-size: 1.1rem;
-    }
-    :root.light-theme .subtitle {
-      color: #475569;
-    }
+.subtitle { 
+  margin: 0.5rem 0 0; 
+  color: #cbd5e1; 
+  font-weight: 500;
+  font-size: 1.1rem;
+}
 .subtitle strong {
   color: #f1f5f9;
   background: linear-gradient(90deg, #4361ee, #7209b7);
@@ -321,12 +318,19 @@
   background-clip: text;
 }
 
-/* ✅ اضافه کردن این خط برای تم روشن */
+
+/* ✅ اضافه کردن این دو بلاک جدید برای تم روشن */
+:root.light-theme .subtitle {
+  color: #475569; /* رنگ خوانا برای متن "Instructor:", "Head TA(1):" */
+  font-weight: 600;
+}
+
 :root.light-theme .subtitle strong {
-  background: var(--name-gradient); /* ← گرادیان زیبا برای نام‌ها */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* حذف گرادیان شفاف — استفاده از رنگ جامد جذاب */
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: #3b82f6; /* آبی زیبا و حرفه‌ای */
+  font-weight: 700;
 }
     nav.nav { 
       display: flex; 
