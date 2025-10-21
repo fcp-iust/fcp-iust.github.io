@@ -1100,26 +1100,27 @@
     </div>
   </footer>
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
 
-    // تنظیم آیکون اولیه
+    // تنظیم اولیه: پیش‌فرض تاریک
     icon.classList.remove('fa-sun');
     icon.classList.add('fa-moon');
     themeToggle.classList.add('dark-mode');
+    // نیازی به بررسی localStorage نیست — پیش‌فرض تاریک
 
-    // تغییر تم با کلیک
-    themeToggle.addEventListener('click', function () {
-      const body = document.body;
-      if (body.classList.contains('light-theme')) {
-        body.classList.remove('light-theme');
+    themeToggle.addEventListener('click', function() {
+      const html = document.documentElement; // <-- مهم: :root = <html>
+      
+      if (html.classList.contains('light-theme')) {
+        html.classList.remove('light-theme');
         themeToggle.classList.remove('light-mode');
         themeToggle.classList.add('dark-mode');
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
       } else {
-        body.classList.add('light-theme');
+        html.classList.add('light-theme');
         themeToggle.classList.remove('dark-mode');
         themeToggle.classList.add('light-mode');
         icon.classList.remove('fa-moon');
@@ -1127,7 +1128,7 @@
       }
     });
 
-    // Smooth scroll و active link
+    // Smooth scroll و active link — بدون تغییر
     document.querySelectorAll('nav.nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
