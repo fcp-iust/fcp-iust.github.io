@@ -1100,25 +1100,16 @@
     </div>
   </footer>
   <script>
-  // Theme toggle functionality — بدون استفاده از localStorage
   document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.getElementById('themeToggle');
     const icon = themeToggle.querySelector('i');
 
-    // تنها بر اساس ترجیح سیستم (اختیاری) — یا پیش‌فرض تاریک
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      document.body.classList.add('light-theme');
-      themeToggle.classList.add('light-mode');
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    } else {
-      document.body.classList.remove('light-theme');
-      themeToggle.classList.add('dark-mode');
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-    }
+    // تنظیم آیکون اولیه
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+    themeToggle.classList.add('dark-mode');
 
-    // تغییر دستی تم
+    // تغییر تم با کلیک
     themeToggle.addEventListener('click', function () {
       const body = document.body;
       if (body.classList.contains('light-theme')) {
@@ -1136,7 +1127,7 @@
       }
     });
 
-    // Smooth scrolling و active link همان‌طور که بود باقی می‌ماند
+    // Smooth scroll و active link
     document.querySelectorAll('nav.nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -1160,7 +1151,7 @@
       sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
           currentSection = '#' + section.getAttribute('id');
         }
       });
