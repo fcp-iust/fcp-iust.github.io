@@ -44,35 +44,40 @@
       --floating-2-color: rgba(114, 9, 183, 0.2);
       --footer-bg: rgba(15, 23, 42, 0.7);
     }
-    :root.light-theme {
-      --primary: #4361ee;
-      --primary-dark: #3a56d4;
-      --secondary: #7209b7;
-      --accent: #f72585;
-      --light: #ffffff;
-      --dark: #1e293b;
-      --gray: #6c757d;
-      --light-gray: #f8f9fa;
-      --success: #4cc9f0;
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --card-border: rgba(0, 0, 0, 0.1);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      --border-radius: 24px;
-      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --header-bg: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
-      --body-bg: #f8f9fa;
-      --text-color: #1e293b;
-      --card-text: #1e293b;
-      --muted-color: #6c757d;
-      --nav-bg: rgba(255, 255, 255, 0.9);
-      --nav-border: rgba(0, 0, 0, 0.1);
-      --nav-hover: rgba(67, 97, 238, 0.15);
-      --nav-active: linear-gradient(90deg, var(--primary), var(--secondary));
-      --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
-      --floating-1-color: rgba(67, 97, 238, 0.1);
-      --floating-2-color: rgba(114, 9, 183, 0.1);
-      --footer-bg: rgba(248, 249, 250, 0.95);
-    }
+    /* ===== Base ===== */
+:root.light-theme {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --accent: #f72585;
+  --light: #ffffff;
+  --dark: #1e293b;
+  --gray: #6c757d;
+  --light-gray: #f8f9fa;
+  --success: #4cc9f0;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --border-radius: 24px;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --header-bg: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+  --body-bg: #f8f9fa;
+  --text-color: #1e293b; /* ← مهم: رنگ متن اصلی */
+  --card-text: #1e293b; /* ← مهم: رنگ متن داخل کارت‌ها */
+  --muted-color: #6c757d; /* ← مهم: رنگ متن‌های خفیف */
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-border: rgba(0, 0, 0, 0.1);
+  --nav-hover: rgba(67, 97, 238, 0.15); /* ← hover منو */
+  --nav-active: linear-gradient(90deg, var(--primary), var(--secondary));
+  --social-icon-bg: linear-gradient(135deg, var(--primary), var(--secondary));
+  --floating-1-color: rgba(67, 97, 238, 0.1);
+  --floating-2-color: rgba(114, 9, 183, 0.1);
+  --footer-bg: rgba(248, 249, 250, 0.95);
+
+  /* ✅ اضافه کردن گرادیان‌های جذاب برای عنوان و نام‌ها در تم روشن */
+  --title-gradient: linear-gradient(90deg, #1e293b, #334155, #475569); /* ← گرادیان تیره برای عنوان */
+  --name-gradient: linear-gradient(90deg, #4361ee, #7209b7); /* ← گرادیان زیبا برای نام‌ها */
+}
     html { 
       scroll-behavior: smooth; 
       font-size: 16px;
@@ -280,23 +285,25 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       border: 1px solid rgba(255,255,255,0.1);
     }
-    .title { 
-      margin: 0; 
-      color: #f1f5f9;
-      font-size: 2.2rem;
-      font-weight: 800;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(90deg, #4cc9f0, #4361ee);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    :root.light-theme .title {
-      background: linear-gradient(90deg, #1e293b, #334155);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.title {
+  margin: 0; 
+  color: #f1f5f9;
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(90deg, #4cc9f0, #4361ee); /* ← در تم تاریک */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ✅ اضافه کردن این خط برای تم روشن */
+:root.light-theme .title {
+  background: var(--title-gradient); /* ← گرادیان تیره برای تم روشن */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
     .subtitle { 
       margin: 0.5rem 0 0; 
       color: #cbd5e1; 
@@ -306,19 +313,21 @@
     :root.light-theme .subtitle {
       color: #475569;
     }
-    .subtitle strong {
-      color: #f1f5f9;
-      background: linear-gradient(90deg, #4361ee, #7209b7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    :root.light-theme .subtitle strong {
-      background: linear-gradient(90deg, #4361ee, #7209b7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+.subtitle strong {
+  color: #f1f5f9;
+  background: linear-gradient(90deg, #4361ee, #7209b7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ✅ اضافه کردن این خط برای تم روشن */
+:root.light-theme .subtitle strong {
+  background: var(--name-gradient); /* ← گرادیان زیبا برای نام‌ها */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
     nav.nav { 
       display: flex; 
       flex-wrap: wrap; 
