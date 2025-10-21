@@ -837,6 +837,13 @@
     :root.light-theme .theme-toggle i {
       color: #1e293b;
     }
+    @media (max-width: 767px) {
+  .head-tas {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+}
   </style>
 </head>
 <body>
@@ -1060,6 +1067,7 @@
     <!-- ===== Slides & Videos ===== -->
 <section id="slides-videos" class="card">
       <h2>Slides & Videos</h2>
+  <div class="table-wrapper">
       <table>
         <thead>
   <tr>
@@ -1129,6 +1137,7 @@
   </tr>
 </tbody>
       </table>
+    </div>
     </section>
     <!-- ===== SOCIAL ===== -->
     <section id="social" class="card">
@@ -1297,6 +1306,7 @@
     <section id="mentors" class="card">
       <h2>Mentors</h2>
       <p class="muted">The mentor for each student has been assigned.</p>
+      <div class="table-wrapper">
       <table>
         <thead><tr><th style="width:60px">#</th><th>Student</th><th>Mentor</th></tr></thead>
         <tbody>
@@ -1332,6 +1342,7 @@
           <tr><td>30</td><td>TBD</td><td>TBD</td></tr>
         </tbody>
       </table>
+        </div>
     </section>
   </main>
   <footer>
