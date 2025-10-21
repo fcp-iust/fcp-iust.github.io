@@ -604,6 +604,73 @@
       background: linear-gradient(90deg, transparent, var(--primary), transparent);
       margin: 2rem 0;
     }
+
+/* ===== Hamburger Menu for Mobile ===== */
+.hamburger {
+  display: none;
+  background: var(--nav-bg);
+  border: 1px solid var(--nav-border);
+  color: var(--text-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: center;
+  transition: var(--transition);
+}
+.hamburger:hover {
+  background: var(--nav-hover);
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  nav.nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0;
+    background: var(--header-bg);
+    border-radius: 16px;
+    margin-top: 1rem;
+  }
+
+  nav.nav.active {
+    display: flex;
+  }
+
+  nav.nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+    
     /* ===== Footer ===== */
     footer { 
       margin-top: 4rem; 
@@ -700,6 +767,11 @@
           <p class="subtitle">Head TA(2): <strong>A. Darpouy</strong></p> 
         </div>
       </div>
+
+      <button class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </button>
+      
       <nav class="nav">
         <a href="#home" class="active">Home</a>
         <a href="#teaching-staff">Teaching Staff</a>
@@ -1179,6 +1251,20 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Toggle mobile menu
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.querySelector('nav.nav');
+
+hamburger.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when clicking a nav link
+document.querySelectorAll('nav.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+  });
+});
       const themeToggle = document.getElementById('themeToggle');
       const icon = themeToggle.querySelector('i');
 
@@ -1203,7 +1289,7 @@
           icon.classList.add('fa-sun');
         }
       });
-
+      
       // Smooth scrolling
       document.querySelectorAll('nav.nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
